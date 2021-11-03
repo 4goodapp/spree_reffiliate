@@ -70,7 +70,7 @@ Spree::User.class_eval do
     end
 
     def activate_associated_partner
-      associated_partner.update_attributes(activation_token: nil, activated_at: Time.current, active: true)
+      associated_partner.update(activation_token: nil, activated_at: Time.current, active: true)
     end
 
     def associated_partner_activable?
