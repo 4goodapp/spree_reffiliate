@@ -9,7 +9,7 @@ module Spree
 
     def create
       @user.can_activate_associated_partner = true
-      if @user.update(user_params)
+      if @user.update_attributes(user_params)
         if params[:user][:password].present?
           sign_in(@user, :event => :authentication, :bypass => !Spree::Auth::Config[:signout_after_password_change])
         end
