@@ -9,7 +9,18 @@ module Spree
         if affiliate_commission_rule.fixed_commission?
           @amount = rate
         else
-          @amount = 200 # (transaction.commissionable.try(:item_total) * (rate))/100
+          #testing currency
+          if (Spree::Store.default.default_currency = "XOF")
+            @amount = 10
+          elsif (Spree::Store.default.default_currency = "USD")
+            @amount = 20
+          elsif (Spree::Store.default.default_currency = "EUR")
+            @amount = 30
+          else
+            @amount = 50
+          end
+          # end testing currency
+          #@amount = 50 # (transaction.commissionable.try(:item_total) * (rate))/100
         end
         @amount.to_f
       end
