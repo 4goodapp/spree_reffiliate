@@ -10,11 +10,11 @@ module Spree
           @amount = rate
         else
           #testing currency
-          if (Spree::Store.default.default_currency = "XOF")
+          if (Spree::Store.default.default_currency == "XOF")
             @amount = 10
-          elsif (Spree::Store.default.default_currency = "USD")
+          elsif (Spree::Store.default.default_currency == "USD")
             @amount = 20
-          elsif (Spree::Store.default.default_currency = "EUR")
+          elsif (Spree::Store.default.default_currency == "EUR")
             @amount = 30
           else
             @amount = 50
