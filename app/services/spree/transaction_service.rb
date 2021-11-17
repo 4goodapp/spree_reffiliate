@@ -12,7 +12,7 @@ module Spree
           #testing currency
           if (Spree::Store.default.default_currency == "XOF")
             @amount = 10
-          elsif (Spree::Store.default.default_currency == "USD") && ((transaction.commissionable.try(:item_total) >= 200)
+          elsif ((Spree::Store.default.default_currency == "USD") && (transaction.commissionable.try(:item_total) >= 200)
             @amount = 20
           elsif (Spree::Store.default.default_currency == "EUR")
             @amount = 30
