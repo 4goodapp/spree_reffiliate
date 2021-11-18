@@ -14,7 +14,7 @@ module Spree
           @my_item_total_amount = (transaction.commissionable.try(:item_total))
             
           if (Spree::Store.default.default_currency == "XOF") && (@my_item_total_amount >= 50000)
-            @my_item_total_amount_XOF_to_USD = (transaction.commissionable.try(:item_total)) / 570.0)   
+            @my_item_total_amount_XOF_to_USD = (transaction.commissionable.try(:item_total)) / 570.0
             @amount = (@my_item_total_amount_XOF_to_USD * (rate))/100.0 
           elsif (Spree::Store.default.default_currency == "USD") && (@my_item_total_amount >= 100)
             @amount = (@my_item_total_amount_XOF_to_USD * (rate))/100.0 
